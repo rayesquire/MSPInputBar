@@ -1,0 +1,3 @@
+target 'MSPInputBar' do
+pod 'Masonry'
+end

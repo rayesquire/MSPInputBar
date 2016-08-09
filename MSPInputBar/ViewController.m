@@ -7,8 +7,16 @@
 //
 
 #import "ViewController.h"
+#import "MSPInputBar.h"
 
-@interface ViewController ()
+#import "UIView+Extension.h"
+
+#define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
+
+@interface ViewController () <MSPInputBarDelegate>
+
+@property (nonatomic, readwrite, strong) MSPInputBar *inputBar;
+@property (nonatomic, readwrite, assign) CGFloat keyboardHeight;
 
 @end
 
@@ -16,12 +24,46 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    _inputBar = [[MSPInputBar alloc] init];
+    _inputBar.delegate = self;
+    [self.view addSubview:_inputBar];
+    
+    [self registerKeyboardNotification];
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)registerKeyboardNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+// 搜狗输入法会多次调用键盘通知获取高度
+- (void)keyboardWillShow:(NSNotification *)notification {
+    CGRect keyboardRect = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+//    if (keyboardRect.size.height > _keyboardHeight) {
+        _keyboardHeight = keyboardRect.size.height;
+//    }
+    [self autoMoveKeyBoard:_keyboardHeight];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+    [self autoMoveKeyBoard:0];
+}
+
+- (void)autoMoveKeyBoard:(CGFloat)height {
+    [UIView animateWithDuration:0.3 animations:^{
+        _inputBar.y = SCREEN_HEIGHT - _inputBar.height - height;
+    }];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)textView:(UITextView *)textView finalText:(NSString *)text {
+    
 }
 
 @end

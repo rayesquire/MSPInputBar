@@ -10,11 +10,12 @@
 		A65636041D59C3580078F656 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A65636031D59C3580078F656 /* main.m */; };
 		A65636071D59C3580078F656 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A65636061D59C3580078F656 /* AppDelegate.m */; };
 		A656360A1D59C3580078F656 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A65636091D59C3580078F656 /* ViewController.m */; };
-		A656360D1D59C3580078F656 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A656360B1D59C3580078F656 /* Main.storyboard */; };
 		A656360F1D59C3580078F656 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A656360E1D59C3580078F656 /* Assets.xcassets */; };
-		A65636121D59C3580078F656 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A65636101D59C3580078F656 /* LaunchScreen.storyboard */; };
 		A656361D1D59C3580078F656 /* MSPInputBarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A656361C1D59C3580078F656 /* MSPInputBarTests.m */; };
 		A65636281D59C3580078F656 /* MSPInputBarUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A65636271D59C3580078F656 /* MSPInputBarUITests.m */; };
+		A65636371D59C3C40078F656 /* MSPInputBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A65636361D59C3C40078F656 /* MSPInputBar.m */; };
+		A656363B1D59C49B0078F656 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A656363A1D59C49B0078F656 /* UIView+Extension.m */; };
+		A673211EA23E632519A872F3 /* libPods-MSPInputBar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2ABD48E1E17D304C438848E /* libPods-MSPInputBar.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,15 +36,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25B91B79B8C893F7CD4FE325 /* Pods-MSPInputBar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSPInputBar.release.xcconfig"; path = "Pods/Target Support Files/Pods-MSPInputBar/Pods-MSPInputBar.release.xcconfig"; sourceTree = "<group>"; };
+		4A338E70E865C65FDE2558AF /* Pods-MSPInputBar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSPInputBar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MSPInputBar/Pods-MSPInputBar.debug.xcconfig"; sourceTree = "<group>"; };
 		A65635FF1D59C3580078F656 /* MSPInputBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MSPInputBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A65636031D59C3580078F656 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A65636051D59C3580078F656 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A65636061D59C3580078F656 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A65636081D59C3580078F656 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		A65636091D59C3580078F656 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		A656360C1D59C3580078F656 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A656360E1D59C3580078F656 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A65636111D59C3580078F656 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A65636131D59C3580078F656 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A65636181D59C3580078F656 /* MSPInputBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MSPInputBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A656361C1D59C3580078F656 /* MSPInputBarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSPInputBarTests.m; sourceTree = "<group>"; };
@@ -51,6 +52,11 @@
 		A65636231D59C3580078F656 /* MSPInputBarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MSPInputBarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A65636271D59C3580078F656 /* MSPInputBarUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSPInputBarUITests.m; sourceTree = "<group>"; };
 		A65636291D59C3580078F656 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A65636351D59C3BE0078F656 /* MSPInputBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSPInputBar.h; sourceTree = "<group>"; };
+		A65636361D59C3C40078F656 /* MSPInputBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPInputBar.m; sourceTree = "<group>"; };
+		A65636391D59C49B0078F656 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		A656363A1D59C49B0078F656 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		D2ABD48E1E17D304C438848E /* libPods-MSPInputBar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MSPInputBar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A673211EA23E632519A872F3 /* libPods-MSPInputBar.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +85,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1BF6F67890FB1919E52DE78B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D2ABD48E1E17D304C438848E /* libPods-MSPInputBar.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		50DA1E40F905A871CE1F1A2F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4A338E70E865C65FDE2558AF /* Pods-MSPInputBar.debug.xcconfig */,
+				25B91B79B8C893F7CD4FE325 /* Pods-MSPInputBar.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A65635F61D59C3580078F656 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +109,8 @@
 				A656361B1D59C3580078F656 /* MSPInputBarTests */,
 				A65636261D59C3580078F656 /* MSPInputBarUITests */,
 				A65636001D59C3580078F656 /* Products */,
+				50DA1E40F905A871CE1F1A2F /* Pods */,
+				1BF6F67890FB1919E52DE78B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,9 +131,8 @@
 				A65636061D59C3580078F656 /* AppDelegate.m */,
 				A65636081D59C3580078F656 /* ViewController.h */,
 				A65636091D59C3580078F656 /* ViewController.m */,
-				A656360B1D59C3580078F656 /* Main.storyboard */,
+				A65636381D59C3C70078F656 /* MSPInputBar */,
 				A656360E1D59C3580078F656 /* Assets.xcassets */,
-				A65636101D59C3580078F656 /* LaunchScreen.storyboard */,
 				A65636131D59C3580078F656 /* Info.plist */,
 				A65636021D59C3580078F656 /* Supporting Files */,
 			);
@@ -140,6 +165,17 @@
 			path = MSPInputBarUITests;
 			sourceTree = "<group>";
 		};
+		A65636381D59C3C70078F656 /* MSPInputBar */ = {
+			isa = PBXGroup;
+			children = (
+				A65636351D59C3BE0078F656 /* MSPInputBar.h */,
+				A65636361D59C3C40078F656 /* MSPInputBar.m */,
+				A65636391D59C49B0078F656 /* UIView+Extension.h */,
+				A656363A1D59C49B0078F656 /* UIView+Extension.m */,
+			);
+			name = MSPInputBar;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +183,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A656362C1D59C3580078F656 /* Build configuration list for PBXNativeTarget "MSPInputBar" */;
 			buildPhases = (
+				681BBA1AA2095956E5E8187D /* [CP] Check Pods Manifest.lock */,
 				A65635FB1D59C3580078F656 /* Sources */,
 				A65635FC1D59C3580078F656 /* Frameworks */,
 				A65635FD1D59C3580078F656 /* Resources */,
+				E46205561DF348E420804FFB /* [CP] Embed Pods Frameworks */,
+				98B5155EEC838EF52F24FB17 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -243,9 +282,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A65636121D59C3580078F656 /* LaunchScreen.storyboard in Resources */,
 				A656360F1D59C3580078F656 /* Assets.xcassets in Resources */,
-				A656360D1D59C3580078F656 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,12 +302,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		681BBA1AA2095956E5E8187D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		98B5155EEC838EF52F24FB17 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MSPInputBar/Pods-MSPInputBar-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E46205561DF348E420804FFB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MSPInputBar/Pods-MSPInputBar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A65635FB1D59C3580078F656 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A656363B1D59C49B0078F656 /* UIView+Extension.m in Sources */,
 				A656360A1D59C3580078F656 /* ViewController.m in Sources */,
+				A65636371D59C3C40078F656 /* MSPInputBar.m in Sources */,
 				A65636071D59C3580078F656 /* AppDelegate.m in Sources */,
 				A65636041D59C3580078F656 /* main.m in Sources */,
 			);
@@ -306,25 +393,6 @@
 			targetProxy = A65636241D59C3580078F656 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		A656360B1D59C3580078F656 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A656360C1D59C3580078F656 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		A65636101D59C3580078F656 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A65636111D59C3580078F656 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A656362A1D59C3580078F656 /* Debug */ = {
@@ -413,6 +481,7 @@
 		};
 		A656362D1D59C3580078F656 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A338E70E865C65FDE2558AF /* Pods-MSPInputBar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MSPInputBar/Info.plist;
@@ -424,6 +493,7 @@
 		};
 		A656362E1D59C3580078F656 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25B91B79B8C893F7CD4FE325 /* Pods-MSPInputBar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MSPInputBar/Info.plist;
@@ -498,6 +568,7 @@
 				A656362E1D59C3580078F656 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A656362F1D59C3580078F656 /* Build configuration list for PBXNativeTarget "MSPInputBarTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +577,7 @@
 				A65636311D59C3580078F656 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A65636321D59C3580078F656 /* Build configuration list for PBXNativeTarget "MSPInputBarUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +586,7 @@
 				A65636341D59C3580078F656 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

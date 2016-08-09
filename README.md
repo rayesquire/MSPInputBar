@@ -9,6 +9,3 @@
     [self.view addSubview:_inputBar];
 ```
 
-
-
-

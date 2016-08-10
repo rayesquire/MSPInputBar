@@ -8,8 +8,6 @@
 
 #import "MSPInputBar.h"
 
-#import "UIView+Extension.h"
-
 #import <Masonry.h>
 
 #define TEXTSIZE 16
@@ -25,11 +23,10 @@
 @property (nonatomic, readwrite, strong) UIButton *faceButton;
 @property (nonatomic, readwrite, strong) UIButton *moreButton;
 
-@property (nonatomic, readwrite, assign) CGFloat currentLines;
+@property (nonatomic, readwrite, assign) CGFloat maxLineHeight;
 @property (nonatomic, readwrite, assign) CGRect originalFrame;
 
-//当删除某个字符导致要调整高度时，应在textviewDidChange方法中进行
-@property (nonatomic, readwrite, assign) BOOL needAdjustByDidChangeMethod;
+@property (nonatomic, readwrite, assign) CGSize cacheSize;
 
 @end
 
@@ -51,10 +48,19 @@
         _inputFrame.delegate = self;
         
         _originalFrame = frame;
-        _currentLines = 1;
-        _needAdjustByDidChangeMethod = NO;
+        _maxLines = 5;
+        
+        NSString *test = @"Aa我";
+        CGSize size = [test sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:TEXTSIZE]}];
+        CGSize constraintSize = CGSizeMake(_inputFrame.frame.size.width, MAXFLOAT);
+        CGSize newSize = [_inputFrame sizeThatFits:constraintSize];
+        _maxLineHeight = newSize.height + (_maxLines - 1) * size.height - 6;
     }
     return self;
+}
+
+- (void)setFrameWithoutOriginalFrame:(CGRect)frame {
+    [super setFrame:frame];
 }
 
 - (void)setFrame:(CGRect)frame {
@@ -63,67 +69,39 @@
 }
 
 #pragma mark - delegate
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    // 删除字符时有特殊情况
-    if ([text isEqualToString:@""]) {
-        _needAdjustByDidChangeMethod = YES;
+- (void)textViewDidChange:(UITextView *)textView {
+    CGSize constraintSize = CGSizeMake(textView.frame.size.width, MAXFLOAT);
+    CGSize size = [textView sizeThatFits:constraintSize];
+
+    if ((size.height >= _maxLineHeight && _cacheSize.height >= _maxLineHeight) || size.height == _cacheSize.height) return;
+    
+    if (size.height <= _originalFrame.size.height - 9) {
+        CGRect rect = CGRectMake(self.frame.origin.x, _originalFrame.origin.y, self.frame.size.width, _originalFrame.size.height);
+        [self setFrameWithoutOriginalFrame:rect];
+//        self.y = _originalFrame.origin.y;
+//        self.height = _originalFrame.size.height;
+        textView.textContainerInset = UIEdgeInsetsMake(10, 5, 0, 5);
+        size = [textView sizeThatFits:constraintSize];
     }
     else {
-        NSString *finalText = [NSString stringWithFormat:@"%@%@",textView.text,text];
-        [self adjustBarDynamic:finalText textView:textView];
-        _needAdjustByDidChangeMethod = NO;
-    }
-    if (self.delegate && [self.delegate respondsToSelector:@selector(textView:finalText:)]) {
-        [self.delegate textView:textView finalText:nil];
-    }
-    return 1;
-}
-
-- (void)textViewDidChange:(UITextView *)textView {
-    if (_needAdjustByDidChangeMethod) {
-        [self adjustBarDynamic:textView.text textView:textView];
-    }
-}
-
-- (void)adjustBarDynamic:(NSString *)text textView:(UITextView *)textView {
-    CGFloat width = textView.frame.size.width - 10;
-    CGSize textSize = [text sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:TEXTSIZE]}];
-    NSInteger result = (NSInteger)textSize.width % (NSInteger)width;
-    NSInteger lines = (NSInteger)(textSize.width / width);
-    if (result) lines++;
-    CGFloat value = textSize.height;
-    if (lines > _currentLines) {
-        if (_currentLines == 5) {
-            _inputFrame.showsVerticalScrollIndicator = YES;
-            _inputFrame.scrollEnabled = YES;
+        if (size.height >= _maxLineHeight) {
+            textView.scrollEnabled = YES;
         }
         else {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                // 因为子视图底层是autolayout，采取动画的话，几个按钮自动调整位置的过程不在动画里，有些违和。
-                // 所以个人猜测，要想获得动画效果且按钮保持位置不变，则应用frame布局代替
-                //                [UIView animateWithDuration:0.3 animations:^{
-                self.y = _originalFrame.origin.y - value;
-                self.height = _originalFrame.size.height + value;
-                //                }];
-            });
-            _currentLines = lines;
+            textView.scrollEnabled = NO;
+            textView.textContainerInset = UIEdgeInsetsMake(2, 5, 2, 5);
+            size = [textView sizeThatFits:constraintSize];
+            CGRect rect = CGRectMake(self.frame.origin.x, self.frame.origin.x, self.frame.size.width, size.height + 12);
+            [self setFrameWithoutOriginalFrame:rect];
+//            self.height = size.height + 12;
         }
+        CGFloat minY = CGRectGetMaxY(_originalFrame);
+        CGRect rect = CGRectMake(self.frame.origin.x, minY - self.frame.size.height, self.frame.size.width, self.frame.size.height);
+        [self setFrameWithoutOriginalFrame:rect];
+//        self.y = minY - self.height;
+        [textView setNeedsLayout];
     }
-    else if (lines < _currentLines) {
-        if (_currentLines == 6 && lines == 5) {
-            _inputFrame.showsVerticalScrollIndicator = NO;
-            _inputFrame.scrollEnabled = NO;
-        }
-        else if (lines < 5) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                //                [UIView animateWithDuration:0.3 animations:^{
-                self.y = _originalFrame.origin.y + value;
-                self.height = _originalFrame.size.height - value;
-                //                }];
-            });
-            _currentLines = lines;
-        }
-    }
+    _cacheSize = size;
 }
 
 #pragma mark - lazy load

@@ -28,4 +28,6 @@
 
 @property (nonatomic, readwrite, weak) id <MSPInputBarDelegate> delegate;
 
+@property (nonatomic, readwrite, assign) NSInteger maxLines;
+
 @end

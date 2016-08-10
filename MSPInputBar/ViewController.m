@@ -41,9 +41,7 @@
 // 搜狗输入法会多次调用键盘通知获取高度
 - (void)keyboardWillShow:(NSNotification *)notification {
     CGRect keyboardRect = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-//    if (keyboardRect.size.height > _keyboardHeight) {
-        _keyboardHeight = keyboardRect.size.height;
-//    }
+    _keyboardHeight = keyboardRect.size.height;
     [self autoMoveKeyBoard:_keyboardHeight];
 }
 

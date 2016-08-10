@@ -14,7 +14,6 @@
 		A656361D1D59C3580078F656 /* MSPInputBarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A656361C1D59C3580078F656 /* MSPInputBarTests.m */; };
 		A65636281D59C3580078F656 /* MSPInputBarUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A65636271D59C3580078F656 /* MSPInputBarUITests.m */; };
 		A65636371D59C3C40078F656 /* MSPInputBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A65636361D59C3C40078F656 /* MSPInputBar.m */; };
-		A656363B1D59C49B0078F656 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A656363A1D59C49B0078F656 /* UIView+Extension.m */; };
 		A673211EA23E632519A872F3 /* libPods-MSPInputBar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2ABD48E1E17D304C438848E /* libPods-MSPInputBar.a */; };
 /* End PBXBuildFile section */
 
@@ -54,8 +53,6 @@
 		A65636291D59C3580078F656 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A65636351D59C3BE0078F656 /* MSPInputBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSPInputBar.h; sourceTree = "<group>"; };
 		A65636361D59C3C40078F656 /* MSPInputBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPInputBar.m; sourceTree = "<group>"; };
-		A65636391D59C49B0078F656 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
-		A656363A1D59C49B0078F656 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		D2ABD48E1E17D304C438848E /* libPods-MSPInputBar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MSPInputBar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -170,8 +167,6 @@
 			children = (
 				A65636351D59C3BE0078F656 /* MSPInputBar.h */,
 				A65636361D59C3C40078F656 /* MSPInputBar.m */,
-				A65636391D59C49B0078F656 /* UIView+Extension.h */,
-				A656363A1D59C49B0078F656 /* UIView+Extension.m */,
 			);
 			name = MSPInputBar;
 			sourceTree = "<group>";
@@ -246,6 +241,7 @@
 				TargetAttributes = {
 					A65635FE1D59C3580078F656 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 79KP673Q8E;
 					};
 					A65636171D59C3580078F656 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -355,7 +351,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A656363B1D59C49B0078F656 /* UIView+Extension.m in Sources */,
 				A656360A1D59C3580078F656 /* ViewController.m in Sources */,
 				A65636371D59C3C40078F656 /* MSPInputBar.m in Sources */,
 				A65636071D59C3580078F656 /* AppDelegate.m in Sources */,
@@ -484,10 +479,13 @@
 			baseConfigurationReference = 4A338E70E865C65FDE2558AF /* Pods-MSPInputBar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MSPInputBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rayesquire.com.MSPInputBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -496,10 +494,13 @@
 			baseConfigurationReference = 25B91B79B8C893F7CD4FE325 /* Pods-MSPInputBar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MSPInputBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rayesquire.com.MSPInputBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
